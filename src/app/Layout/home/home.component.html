@@ -1,0 +1,163 @@
+<div class="container mt-5" style="margin-top:6rem!important;">
+    <div class="row card">
+        <div class="card-header"><strong>Dashboard</strong></div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Projects (till now)</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">14,000</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-calendar fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Annual REvenue(Annual)</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">$215USD</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                    </div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="progress progress-sm mr-2">
+                                                <div class="progress-bar bg-info" role="progressbar" style="width: 50%"
+                                                    aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-clipboard-list fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Pending Requests</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fa fa-comments fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="clearfix m-4"></div>
+    <div class="row card">
+        <div class="card-header"><strong>Our Clients</strong></div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 col-lg-3" *ngFor="let employee of users">
+                    <div class="card text-center mb-4">
+                        <img [src]="employee.ImageUpload" style="width:100px;height:100px;margin: auto;"
+                            class="card-img-top" alt="{{employee.ImageUpload}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{employee.EmployeeName}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{employee.EmployeeDesignation}}</h6>
+                            <p class="card-text">{{employee.EmployeeEmail}}</p>
+                            <span href="#" class="badge rounded-pill bg-success me-1">Readmore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix m-4"></div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header"><strong>Recent Activity</strong></div>
+                <div class="card-body">
+                    <ol class="activity-feed">
+                        <li class="feed-item" *ngFor="let employee of users">
+                            <time class="date" datetime="9-25">{{myDate | date:'medium'}}</time>
+                            <span class="text">“<strong>{{employee.Notifications}}</strong>” updated his
+                                details..!</span>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header"><strong>People</strong></div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-3" *ngFor="let employee of users">
+                        <div class="d-flex align-items-center flex-shrink-0 me-3">
+                            <div class="avatar avatar-xl me-3 bg-gray-200"><img class="avatar-img img-fluid"
+                                    src="{{employee.ImageUpload}}" width="40" alt=""></div>
+                            <div class="d-flex flex-column fw-bold">
+                                <a class="text-dark line-height-normal mb-1" style="text-decoration:none ;"
+                                    href="#!">{{employee.EmployeeName}}</a>
+                                <div class="small text-muted line-height-normal">{{employee.EmployeeDesignation}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clearfix m-4"></div>
+    <div class="row g-0" style="box-shadow:0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);background:#fff">
+        <div class="col-auto card-icon-aside bg-primary">
+            <i class="fa fa-exclamation-triangle"></i>
+        </div>
+        <div class="col">
+            <div class="card-body py-5">
+                <h5 class="card-title">It's an Angular Sample Trsting Prolject</h5>
+                <p class="card-text">Angular is a third party plugin that is used to generate the Angular in this
+                    template. The Angular above have been customized to fit the style of the SB Admin Pro theme. For
+                    further customization options, please visit the official Angular documentation.</p>
+                <a class="btn btn-primary btn-sm" target="_blank">
+                    <i class="fa fa-external-link-alt me-2"></i>  Visit Angular Docs
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix m-4"></div>
+</div>
+<ng-http-loader [backdrop]="true" [backgroundColor]="'#d63384'" [minDuration]="1000" [spinner]="spinnerStyle.skCubeGrid">
+</ng-http-loader>

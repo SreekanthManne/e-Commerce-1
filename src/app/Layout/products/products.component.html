@@ -1,0 +1,28 @@
+<div class="container">
+    <section id="cart" class="">
+        <div class="row">
+            <div class="col-md-3" *ngFor="let prod of productsdata">
+                <div class="card">
+                    <img src="{{currenturl}}/assets/images/products/{{prod.ProductImage}}"
+                        alt="{{prod.ProductImage}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{prod.ProductName}}</h5>
+                        <p class="card-text">{{prod.ProductDescription}}</p>
+                        <footer class="content">
+                            <span class="full-price btn ">Rs: {{prod.ProductPrice}}</span>
+                            <span class="qt-minus">-</span>
+                            <span class="qt">{{prod.Quantity}}</span>
+                            <span class="qt-plus">+</span>
+                        </footer>
+                        <p class="text-center"><button type="button" class="btn btn-outline-dark rounded-bottom mt-4" id="{{prod.ProductID}}"
+                                (click)="addtocart(prod)">{{this.carttitle}}</button></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<ng-http-loader [backdrop]="true" [backgroundColor]="'#000000'" [minDuration]="1000"
+    [spinner]="spinnerStyle.skCubeGrid">
+</ng-http-loader>

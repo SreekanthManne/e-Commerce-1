@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="">
+        <div class="col-md-4 col-xs-12 col-sm-12">
+            <div class="" [formGroup]="edituser">
+                <p class="lead"><strong>User Directory</strong></p>
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sno</th>
+                            <th>Name</th>
+                            <th>Designation</th>
+                            <th>Email</th>
+                            <th>Delete/Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of users"
+                            [ngClass]="{'table-primary': item.EmployeeId == this.activeloginuser}">
+                            <td><input type="text" id="{{item.EmployeeId}}" value="{{item.EmployeeId}}"
+                                    [disabled]="this.editflag" /></td>
+                            <td><input type="text" id="{{item.EmployeeId}}" value="{{item.EmployeeName}}"
+                                    [disabled]="this.editflag" /></td>
+                            <td><input type="text" id="{{item.EmployeeId}}" value="{{item.EmployeeDesignation}}"
+                                    [disabled]="this.editflag" /></td>
+                            <td><input type="text" id="{{item.EmployeeId}}" value="{{item.EmployeeEmail}}"
+                                    [disabled]="this.editflag" /></td>
+                            <td>
+                                <a type="button" class="badge bg-danger m-1" (click)="deleteUser(item.EmployeeId)">Delete</a>
+                                <a type="button" class="badge bg-success" data-bs-toggle="modal" data-bs-target="#exampleModal"  id="edit_user"
+                                    (click)="editUser(item)">Edit</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="edituser">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" class="form-control" formControlName="EmployeeName"
+                                placeholder="User Name">
+                        </div>
+                        <div class="form-group">
+                            <label>Designation</label>
+                            <input type="text" class="form-control" formControlName="EmployeeDesignation"
+                                placeholder="User Designation">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" formControlName="EmployeeEmail"
+                                placeholder="User Email">
+                        </div>
+                        <button type="submit" class="btn btn-black" (click)="UpdateUser()">Save</button>
+                        <button type="button" class="btn btn-black" data-bs-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

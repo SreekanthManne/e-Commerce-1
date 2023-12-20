@@ -1,0 +1,30 @@
+
+
+<div class="sidenav">
+  <div class="login-main-text">
+     <h2>Application<br> Login Page</h2>
+     <p>Login or register from here to access.</p>
+  </div>
+</div>
+<div class="main">
+  <div class="col-md-6 col-sm-12">
+     <div class="login-form">
+        <form [formGroup]="login" class="was-validated">
+           <div class="form-group">
+              <label>User Name</label>
+              <input type="text" class="form-control"  formControlName="name"  placeholder="User Name" required="">
+              <div class="valid-feedback">Valid.</div>
+             <div class="invalid-feedback">Please fill out this field.</div>
+           </div>
+           <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" formControlName="password" placeholder="Password" required="">
+              <div class="valid-feedback">Valid.</div>
+              <div class="invalid-feedback">Please fill out this field.</div>
+           </div>
+           <button type="submit" class="btn btn-black" (click)="loginSubmit(login.value)">Login</button>
+           <button type="submit" class="btn btn-black" (click)="Register()">Register</button>
+        </form>
+     </div>
+  </div>
+</div>
